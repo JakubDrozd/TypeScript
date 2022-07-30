@@ -3,6 +3,9 @@ button.addEventListener("click", () => {
   console.log(`clicked`);
 });
 
+const number = "test";
+console.log(number);
+
 let userInput: unknown;
 let userName: string;
 
