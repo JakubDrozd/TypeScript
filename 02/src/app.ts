@@ -1,7 +1,9 @@
 const button = document.querySelector("button")!;
-button.addEventListener("click", () => {
-  console.log(`clicked`);
-});
+button.addEventListener("click", clickHandler.bind(null, "You're welcome"));
+
+function clickHandler(message: string) {
+  console.log(message);
+}
 
 const number = "test";
 console.log(number);
