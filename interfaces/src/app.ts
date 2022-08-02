@@ -2,6 +2,10 @@ class Department {
   protected employees: string[] = [];
   constructor(private readonly id: string, public name: string) {}
 
+  static createEmployee(name: string) {
+    return { name: name };
+  }
+
   describe(this: Department) {
     console.log(`Department: (${this.id}) ${this.name}`);
   }
@@ -81,3 +85,6 @@ accounting2.getReports();
 accounting2.mostRecentReport = "Year End Report";
 
 console.log(accounting2.mostRecentReport);
+
+const employee1 = Department.createEmployee("Max");
+console.log(employee1);
