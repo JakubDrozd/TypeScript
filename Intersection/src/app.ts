@@ -20,3 +20,54 @@ type Combinable = string | number;
 type Numeric = number | boolean;
 
 type Universal = Combinable & Numeric;
+
+function add(n1: Combinable, n2: Combinable) {
+  if (typeof n1 === "string" || typeof n2 === "string") {
+    return n1.toString() + n2.toString();
+  }
+  return n1 + n2;
+}
+
+type UnknownEmployee = Employee | Admin;
+
+function printEmployeeInformation(employee: UnknownEmployee) {
+  console.log(`Name: ${employee.name}`);
+  if ("privileges" in employee) {
+    console.log(`Privileges ${employee.privileges}`);
+  }
+  if ("startDate" in employee) {
+    console.log(`Start Date: ${employee.startDate}`);
+  }
+}
+
+printEmployeeInformation(e1);
+
+class Car {
+  drive() {
+    console.log(`Driving...`);
+  }
+}
+
+class Truck {
+  drive() {
+    console.log(`Driving a truck...`);
+  }
+  loadCargo() {
+    console.log("Loading cargo...");
+  }
+}
+
+type Vehicle = Car | Truck;
+
+const v1 = new Car();
+const v2 = new Truck();
+
+function useVehicle(vehicle: Vehicle) {
+  vehicle.drive();
+  if (vehicle instanceof Truck) {
+    vehicle.loadCargo();
+  }
+}
+
+useVehicle(v1);
+useVehicle(v2);
