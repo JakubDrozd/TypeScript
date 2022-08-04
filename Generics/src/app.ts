@@ -15,10 +15,10 @@ promise.then((data) => {
 });
 
 //CREATING A GENERIC FUNCTION
-function merge<T, U>(a: T, b: U) {
+function merge<T extends object, U extends object>(a: T, b: U) {
   return Object.assign(a, b);
 }
 
-const mergedObj = merge({ name: "Max" }, { age: 30 });
+const mergedObj = merge({ name: "Max", hobbies: ["Sports"] }, { age: 30 });
 
 console.log(mergedObj);
