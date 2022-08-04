@@ -86,3 +86,25 @@ const objStorage = new DataStorage<object>();
 objStorage.addItem({ name: "Max", age: 30 });
 objStorage.addItem({ name: "Jakub", age: 19 });
 objStorage.getItems();
+
+interface CourseGoal {
+  title: string;
+  description: string;
+  completeUntil: Date;
+}
+
+//BUILT-IN UTILITY TYPES
+
+function createCourseGoal(
+  title: string,
+  description: string,
+  completeUntil: Date
+): CourseGoal {
+  let courseGoal: Partial<CourseGoal> = {};
+  courseGoal.title = title;
+  courseGoal.description = description;
+  courseGoal.completeUntil = completeUntil;
+  return courseGoal as CourseGoal;
+}
+
+const names2: ReadonlyArray<string> = ["Max", "Piotr"];
