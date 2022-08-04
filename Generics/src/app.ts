@@ -34,3 +34,14 @@ function countAndDesc<T extends string>(element: T): [T, string] {
 }
 
 console.log(countAndDesc("Kaczanas!"));
+
+// KEYOF
+
+function extractAndConvert<T extends object, U extends keyof T>(
+  obj: T,
+  key: U
+) {
+  return `Value ${obj[key]}`;
+}
+
+console.log(extractAndConvert({ name: "Max" }, "name"));
