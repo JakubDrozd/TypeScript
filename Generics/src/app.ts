@@ -45,3 +45,44 @@ function extractAndConvert<T extends object, U extends keyof T>(
 }
 
 console.log(extractAndConvert({ name: "Max" }, "name"));
+
+//CREATING GENERIC CLASSES (DO NOT USE WITH OBJECTS, ONLY PRIMITIVE)
+class DataStorage<T> {
+  private data: T[] = [];
+
+  addItem(item: T) {
+    this.data.push(item);
+  }
+
+  removeItem(item: T) {
+    this.data.splice(this.data.indexOf(item), 1);
+  }
+
+  getItems() {
+    console.log([...this.data]);
+  }
+}
+
+const textStorage = new DataStorage<string>();
+textStorage.addItem("Max");
+textStorage.addItem("Jakub");
+textStorage.removeItem("Max");
+textStorage.getItems();
+
+const numberStorage = new DataStorage<number>();
+numberStorage.addItem(259);
+numberStorage.addItem(999);
+numberStorage.addItem(111);
+numberStorage.addItem(138);
+
+const textAndNumbersStorage = new DataStorage<string | number>();
+textAndNumbersStorage.addItem("Max");
+textAndNumbersStorage.addItem(10);
+textAndNumbersStorage.addItem("Jakub");
+textAndNumbersStorage.addItem(999);
+textAndNumbersStorage.getItems();
+
+const objStorage = new DataStorage<object>();
+objStorage.addItem({ name: "Max", age: 30 });
+objStorage.addItem({ name: "Jakub", age: 19 });
+objStorage.getItems();
