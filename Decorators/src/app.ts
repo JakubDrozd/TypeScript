@@ -89,3 +89,6 @@ class Product {
     return this._price * (1 + tax);
   }
 }
+
+const pr1 = new Product("Book", 19);
+const pr2 = new Product("Book 2", 29);
