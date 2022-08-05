@@ -8,7 +8,10 @@ function Logger(logString: string) {
 }
 
 function WithTemplate(template: string, hookID: string) {
+  console.log(`LOGGER FACTORY`);
+
   return function (constructor: any) {
+    console.log(`Rendering template`);
     const hookEl = document.getElementById(hookID);
     const p = new constructor();
     if (hookEl) {
@@ -18,7 +21,7 @@ function WithTemplate(template: string, hookID: string) {
   };
 }
 
-// @Logger("LOGGING - PERSON")
+@Logger("LOGGING - PERSON")
 @WithTemplate("<h1>My Person Object</h1>", "app")
 class Person {
   name = "Max";
