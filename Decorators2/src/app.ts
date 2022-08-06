@@ -5,6 +5,13 @@ function CarDecorator(constructor: Function) {
   };
 }
 
+function OtherDecorator() {
+  return function (constructor: Function) {
+    constructor.prototype.other = "Other Value";
+  };
+}
+
+@OtherDecorator()
 @CarDecorator
 class Car {
   brand: string;
