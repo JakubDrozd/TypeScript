@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Button from "react-bootstrap/Button"
 import Form from "react-bootstrap/Form"
+import { MyComponent } from "./components/MyComponent"
 
 export function App() {
   const [state, setState] = useState({
@@ -30,6 +31,7 @@ export function App() {
         
       </Form>
       <h5>{state.email} {state.password}</h5>
+      <MyComponent title={state.email}></MyComponent>
     </div>
   )
 }
