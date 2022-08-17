@@ -4,16 +4,16 @@ import './styles/index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { App2 } from './components/App2';
+import { Clock } from './components/Clock';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
-root.render(
-  <React.StrictMode>
-    <App2 />
-  </React.StrictMode>
-);
 
+root.render(
+<Clock>
+</Clock>
+)
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
